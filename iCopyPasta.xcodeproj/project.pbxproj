@@ -13,6 +13,7 @@
 		023EE7821C3C475B00A0348F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023EE7811C3C475B00A0348F /* Assets.xcassets */; };
 		023EE7851C3C475B00A0348F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023EE7831C3C475B00A0348F /* LaunchScreen.storyboard */; };
 		023EE7901C3C475B00A0348F /* iCopyPastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */; };
+		023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		023EE78B1C3C475B00A0348F /* iCopyPastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCopyPastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCopyPastaTests.swift; sourceTree = "<group>"; };
 		023EE7911C3C475B00A0348F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		023EE7791C3C475B00A0348F /* iCopyPasta */ = {
 			isa = PBXGroup;
 			children = (
+				023EE79A1C3C4E6900A0348F /* Model */,
 				023EE77A1C3C475B00A0348F /* AppDelegate.swift */,
 				023EE77C1C3C475B00A0348F /* ViewController.swift */,
 				023EE77E1C3C475B00A0348F /* Main.storyboard */,
@@ -94,6 +97,14 @@
 				023EE7911C3C475B00A0348F /* Info.plist */,
 			);
 			path = iCopyPastaTests;
+			sourceTree = "<group>";
+		};
+		023EE79A1C3C4E6900A0348F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			files = (
 				023EE77D1C3C475B00A0348F /* ViewController.swift in Sources */,
 				023EE77B1C3C475B00A0348F /* AppDelegate.swift in Sources */,
+				023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +398,7 @@
 				023EE7961C3C475B00A0348F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		023EE7971C3C475B00A0348F /* Build configuration list for PBXNativeTarget "iCopyPastaTests" */ = {
 			isa = XCConfigurationList;
@@ -394,6 +407,7 @@
 				023EE7991C3C475B00A0348F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
