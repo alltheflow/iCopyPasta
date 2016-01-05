@@ -1,5 +1,5 @@
 //
-//  PasteboardViewModel.swift
+//  PasteViewModel.swift
 //  iCopyPasta
 //
 //  Created by Agnes Vasarhelyi on 05/01/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PasteboardViewModel {
+class PasteViewModel {
 
     let pasteboardService = PasteboardService()
 

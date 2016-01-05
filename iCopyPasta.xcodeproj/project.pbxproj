@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		023EE77B1C3C475B00A0348F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE77A1C3C475B00A0348F /* AppDelegate.swift */; };
-		023EE77D1C3C475B00A0348F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE77C1C3C475B00A0348F /* ViewController.swift */; };
+		023EE77D1C3C475B00A0348F /* PasteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE77C1C3C475B00A0348F /* PasteViewController.swift */; };
 		023EE7801C3C475B00A0348F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023EE77E1C3C475B00A0348F /* Main.storyboard */; };
 		023EE7821C3C475B00A0348F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023EE7811C3C475B00A0348F /* Assets.xcassets */; };
 		023EE7851C3C475B00A0348F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023EE7831C3C475B00A0348F /* LaunchScreen.storyboard */; };
 		023EE7901C3C475B00A0348F /* iCopyPastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */; };
 		023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */; };
 		023EE7A01C3C597900A0348F /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79F1C3C597900A0348F /* PasteboardService.swift */; };
-		023EE7A21C3C5ABC00A0348F /* PasteboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE7A11C3C5ABC00A0348F /* PasteboardViewModel.swift */; };
+		023EE7A21C3C5ABC00A0348F /* PasteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE7A11C3C5ABC00A0348F /* PasteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		023EE7771C3C475B00A0348F /* iCopyPasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCopyPasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		023EE77A1C3C475B00A0348F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		023EE77C1C3C475B00A0348F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		023EE77C1C3C475B00A0348F /* PasteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteViewController.swift; sourceTree = "<group>"; };
 		023EE77F1C3C475B00A0348F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		023EE7811C3C475B00A0348F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		023EE7841C3C475B00A0348F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		023EE7911C3C475B00A0348F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardItem.swift; sourceTree = "<group>"; };
 		023EE79F1C3C597900A0348F /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
-		023EE7A11C3C5ABC00A0348F /* PasteboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardViewModel.swift; sourceTree = "<group>"; };
+		023EE7A11C3C5ABC00A0348F /* PasteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +83,10 @@
 		023EE7791C3C475B00A0348F /* iCopyPasta */ = {
 			isa = PBXGroup;
 			children = (
-				023EE7A31C3C5AC400A0348F /* ViewModel */,
 				023EE79A1C3C4E6900A0348F /* Model */,
+				023EE7A41C3C5B2B00A0348F /* View */,
+				023EE7A31C3C5AC400A0348F /* ViewModel */,
 				023EE77A1C3C475B00A0348F /* AppDelegate.swift */,
-				023EE77C1C3C475B00A0348F /* ViewController.swift */,
 				023EE79F1C3C597900A0348F /* PasteboardService.swift */,
 				023EE77E1C3C475B00A0348F /* Main.storyboard */,
 				023EE7811C3C475B00A0348F /* Assets.xcassets */,
@@ -116,9 +116,17 @@
 		023EE7A31C3C5AC400A0348F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				023EE7A11C3C5ABC00A0348F /* PasteboardViewModel.swift */,
+				023EE7A11C3C5ABC00A0348F /* PasteViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		023EE7A41C3C5B2B00A0348F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				023EE77C1C3C475B00A0348F /* PasteViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,9 +230,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023EE7A21C3C5ABC00A0348F /* PasteboardViewModel.swift in Sources */,
+				023EE7A21C3C5ABC00A0348F /* PasteViewModel.swift in Sources */,
 				023EE7A01C3C597900A0348F /* PasteboardService.swift in Sources */,
-				023EE77D1C3C475B00A0348F /* ViewController.swift in Sources */,
+				023EE77D1C3C475B00A0348F /* PasteViewController.swift in Sources */,
 				023EE77B1C3C475B00A0348F /* AppDelegate.swift in Sources */,
 				023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */,
 			);
