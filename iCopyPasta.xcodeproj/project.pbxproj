@@ -14,6 +14,7 @@
 		023EE7851C3C475B00A0348F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023EE7831C3C475B00A0348F /* LaunchScreen.storyboard */; };
 		023EE7901C3C475B00A0348F /* iCopyPastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */; };
 		023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */; };
+		023EE7A01C3C597900A0348F /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79F1C3C597900A0348F /* PasteboardService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCopyPastaTests.swift; sourceTree = "<group>"; };
 		023EE7911C3C475B00A0348F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardItem.swift; sourceTree = "<group>"; };
+		023EE79F1C3C597900A0348F /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				023EE7811C3C475B00A0348F /* Assets.xcassets */,
 				023EE7831C3C475B00A0348F /* LaunchScreen.storyboard */,
 				023EE7861C3C475B00A0348F /* Info.plist */,
+				023EE79F1C3C597900A0348F /* PasteboardService.swift */,
 			);
 			path = iCopyPasta;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023EE7A01C3C597900A0348F /* PasteboardService.swift in Sources */,
 				023EE77D1C3C475B00A0348F /* ViewController.swift in Sources */,
 				023EE77B1C3C475B00A0348F /* AppDelegate.swift in Sources */,
 				023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */,
