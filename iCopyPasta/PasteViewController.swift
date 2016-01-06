@@ -20,7 +20,7 @@ class PasteViewController: UIViewController {
         super.viewDidLoad()
         
         let items = Observable.just([
-            pasteViewModel.pasteboardService.pasteboard.string
+                pasteViewModel.pasteboardService.pasteboard.string
             ])
         
         items
