@@ -26,7 +26,7 @@ class PasteViewController: UIViewController {
         items
             .bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
                 if let paste = element {
-                    cell.textLabel?.text = "\(paste as String) @ row \(row)"
+                    cell.textLabel?.text = "\(paste as String)"
                 }
             }.addDisposableTo(disposeBag)
         
