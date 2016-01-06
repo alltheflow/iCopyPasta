@@ -19,7 +19,7 @@ Emit only those items from an Observable that pass a predicate test
 */
 
 example("filter") {
-    let subscription = Observable.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    let subscription = Observable.of(0, 1, 3, 4, 5, 6, 7, 8, 9)
         .filter {
             $0 % 2 == 0
         }

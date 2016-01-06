@@ -16,6 +16,8 @@
 		023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */; };
 		023EE7A01C3C597900A0348F /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79F1C3C597900A0348F /* PasteboardService.swift */; };
 		023EE7A21C3C5ABC00A0348F /* PasteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE7A11C3C5ABC00A0348F /* PasteViewModel.swift */; };
+		023EE7A91C3C5FDA00A0348F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023EE7A61C3C5F5C00A0348F /* RxSwift.framework */; };
+		023EE7B11C3CF2D500A0348F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023EE7B01C3CF2D500A0348F /* RxCocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardItem.swift; sourceTree = "<group>"; };
 		023EE79F1C3C597900A0348F /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		023EE7A11C3C5ABC00A0348F /* PasteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteViewModel.swift; sourceTree = "<group>"; };
+		023EE7A61C3C5F5C00A0348F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		023EE7B01C3CF2D500A0348F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023EE7A91C3C5FDA00A0348F /* RxSwift.framework in Frameworks */,
+				023EE7B11C3CF2D500A0348F /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +73,7 @@
 			children = (
 				023EE7791C3C475B00A0348F /* iCopyPasta */,
 				023EE78E1C3C475B00A0348F /* iCopyPastaTests */,
+				023EE7AF1C3C60AA00A0348F /* Frameworks */,
 				023EE7781C3C475B00A0348F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +136,16 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		023EE7AF1C3C60AA00A0348F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				023EE7B01C3CF2D500A0348F /* RxCocoa.framework */,
+				023EE7A61C3C5F5C00A0348F /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			path = iCopyPasta;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +156,7 @@
 				023EE7731C3C475B00A0348F /* Sources */,
 				023EE7741C3C475B00A0348F /* Frameworks */,
 				023EE7751C3C475B00A0348F /* Resources */,
+				023EE7A81C3C5F8700A0348F /* Copy Carthage frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +242,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		023EE7A81C3C5F8700A0348F /* Copy Carthage frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			name = "Copy Carthage frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		023EE7731C3C475B00A0348F /* Sources */ = {
@@ -361,6 +398,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iCopyPasta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasarhelyia.iCopyPasta;
@@ -372,6 +413,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iCopyPasta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasarhelyia.iCopyPasta;
