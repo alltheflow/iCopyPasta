@@ -34,7 +34,7 @@ class PasteViewController: UIViewController {
         tableView
             .rx_modelSelected(String)
             .subscribeNext { value in
-
+                // item selected
             }.addDisposableTo(disposeBag)
     }
     
