@@ -13,13 +13,22 @@ class PasteboardService {
     
     let pasteboard = UIPasteboard.generalPasteboard()
     var pasteboardItems = Variable(Array<String>())
+    var changeCount = Variable(0)
 
     @objc func pollPasteboardItems() {
+
+        if changeCount.value == pasteboard.changeCount {
+            return
+        }
+
         guard let pasteboardItem = pasteboard.string else {
             return
         }
         
         pasteboardItems.value.append(pasteboardItem)
+        pasteboardItems.value = pasteboardItems.value.reverse()
+        changeCount.value = pasteboard.changeCount
+
     }
 
 }
