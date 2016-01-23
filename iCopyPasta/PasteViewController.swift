@@ -19,17 +19,15 @@ class PasteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let items = Observable.just([
-                pasteViewModel.pasteboardService.pasteboard.string
-            ])
+        let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self.pasteViewModel.pasteboardService, selector: "pollPasteboardItems", userInfo: nil, repeats: true)
+        timer.fire()
+
+        let items = pasteViewModel.pasteboardService.pasteboardItems.asObservable()
+        items.bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
+            cell.textLabel?.text = "\(element as String)"
+        }.addDisposableTo(disposeBag)
         
-        items
-            .bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
-                if let paste = element {
-                    cell.textLabel?.text = "\(paste as String)"
-                }
-            }.addDisposableTo(disposeBag)
-        
+        items.subscribeNext { _ in self.tableView.reloadData() }.addDisposableTo(disposeBag)
         
         tableView
             .rx_modelSelected(String)

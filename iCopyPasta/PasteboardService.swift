@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import RxSwift
 
 class PasteboardService {
     
     let pasteboard = UIPasteboard.generalPasteboard()
+    var pasteboardItems = Variable(Array<String>())
+
+    @objc func pollPasteboardItems() {
+        guard let pasteboardItem = pasteboard.string else {
+            return
+        }
+        
+        pasteboardItems.value.append(pasteboardItem)
+    }
+
 }
