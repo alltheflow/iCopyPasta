@@ -32,7 +32,7 @@ class PasteViewController: UIViewController {
         tableView
             .rx_modelSelected(String)
             .subscribeNext { value in
-                // item selected
+                self.pasteViewModel.pasteboardService.pasteboard.addItems([["NSString" : NSString(string: value)]])
             }.addDisposableTo(disposeBag)
     }
     
