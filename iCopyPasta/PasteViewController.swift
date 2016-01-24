@@ -14,7 +14,7 @@ class PasteViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     let pasteViewModel = PasteViewModel()
-    var disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +22,7 @@ class PasteViewController: UIViewController {
         let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self.pasteViewModel.pasteboardService, selector: "pollPasteboardItems", userInfo: nil, repeats: true)
         timer.fire()
 
-        let items = pasteViewModel.pasteboardService.pasteboardItems.asObservable()
-        items.bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
+        pasteViewModel.pasteboardItems().bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
             switch element {
             case is String:
                 cell.textLabel?.text = element as? String
@@ -33,7 +32,7 @@ class PasteViewController: UIViewController {
             }
         }.addDisposableTo(disposeBag)
         
-        items.subscribeNext { _ in self.tableView.reloadData() }.addDisposableTo(disposeBag)
+        pasteViewModel.pasteboardItems().subscribeNext { _ in self.tableView.reloadData() }.addDisposableTo(disposeBag)
         
         tableView
             .rx_modelSelected(String)
