@@ -19,7 +19,7 @@ class PasteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self.pasteViewModel.pasteboardService, selector: "pollPasteboardItems", userInfo: nil, repeats: true)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self.pasteViewModel, selector: "pollPasteboardItems", userInfo: nil, repeats: true)
         timer.fire()
 
         pasteViewModel.pasteboardItems().bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in

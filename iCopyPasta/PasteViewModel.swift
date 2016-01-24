@@ -18,4 +18,8 @@ class PasteViewModel {
         return pasteboardService.pasteboardItems.asObservable()
     }
 
+    func pollPasteboardItems() {
+        pasteboardService.pollPasteboardItems()
+    }
+
 }
