@@ -12,8 +12,8 @@ import RxSwift
 class PasteboardService {
     
     let pasteboard = UIPasteboard.generalPasteboard()
-    var pasteboardItems = Variable(Array<String>())
-    var changeCount = Variable(0)
+    let pasteboardItems = Variable(Array<String>())
+    let changeCount = Variable(0)
 
     @objc func pollPasteboardItems() {
 
