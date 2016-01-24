@@ -12,7 +12,7 @@ import RxSwift
 class PasteboardService {
     
     let pasteboard = UIPasteboard.generalPasteboard()
-    let pasteboardItems = Variable(Array<String>())
+    let pasteboardItems = Variable(Array<AnyObject>())
     let changeCount = Variable(0)
 
     @objc func pollPasteboardItems() {
@@ -21,11 +21,14 @@ class PasteboardService {
             return
         }
 
-        guard let pasteboardItem = pasteboard.string else {
-            return
+        if let pasteboardString = pasteboard.string {
+            pasteboardItems.value.append(pasteboardString)
         }
         
-        pasteboardItems.value.append(pasteboardItem)
+        if let pasteboardImage = pasteboard.image {
+            pasteboardItems.value.append(pasteboardImage)
+        }
+
         pasteboardItems.value = pasteboardItems.value.reverse()
         changeCount.value = pasteboard.changeCount
 

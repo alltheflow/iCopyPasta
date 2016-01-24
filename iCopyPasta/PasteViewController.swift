@@ -24,7 +24,13 @@ class PasteViewController: UIViewController {
 
         let items = pasteViewModel.pasteboardService.pasteboardItems.asObservable()
         items.bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
-            cell.textLabel?.text = "\(element as String)"
+            switch element {
+            case is String:
+                cell.textLabel?.text = element as? String
+            case is UIImage:
+                cell.imageView?.image = element as? UIImage
+            default: break
+            }
         }.addDisposableTo(disposeBag)
         
         items.subscribeNext { _ in self.tableView.reloadData() }.addDisposableTo(disposeBag)
