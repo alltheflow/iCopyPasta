@@ -15,7 +15,7 @@ class PasteViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let pasteViewModel = PasteViewModel()
     let disposeBag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +42,6 @@ class PasteViewController: UIViewController {
                 self?.pasteViewModel.addItemsToPasteboard(element)
             }.addDisposableTo(disposeBag)
     }
-    
+
 }
 

@@ -27,16 +27,16 @@ class PasteboardService {
         let observableImage = pasteboard.rx_observe(UIImage.self, "image")
         
         observableString.subscribeNext { [weak self] string in
-                if let item = string {
-                    self?.addItem(item)
-                }
-            }.addDisposableTo(disposeBag)
+            if let item = string {
+                self?.addItem(item)
+            }
+        }.addDisposableTo(disposeBag)
         
         observableImage.subscribeNext { [weak self] image in
-                if let item = image {
-                    self?.addItem(item)
-                }
-            }.addDisposableTo(disposeBag)
+            if let item = image {
+                self?.addItem(item)
+            }
+        }.addDisposableTo(disposeBag)
     }
 
     class var pasteboardService: PasteboardService {
@@ -57,8 +57,6 @@ class PasteboardService {
         if let pasteboardImage = pasteboard.image {
            addItem(pasteboardImage)
         }
-
-        changeCount.value = pasteboard.changeCount
     }
 
     func addItems(items: PasteboardItemArray) {
@@ -69,7 +67,12 @@ class PasteboardService {
     // MARK: prvivate functions
 
     private func addItem(item: AnyObject) {
-        pasteboardItems.value.append(self.pasteboardItem(item)!)
+        let pasteboardItem = self.pasteboardItem(item)!
+        pasteboardItems.value = pasteboardItems.value.filter { pasteboardItem != $0 }
+        pasteboardItems.value.append(pasteboardItem)
+
+        let pasteboard = UIPasteboard.generalPasteboard()
+        changeCount.value = pasteboard.changeCount
     }
 
     private func pasteboardItem(item: AnyObject?) -> PasteboardItem? {

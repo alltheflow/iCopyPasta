@@ -8,6 +8,23 @@
 
 import UIKit
 
+extension UIImage {
+
+    public override func isEqual(object: AnyObject?) -> Bool {
+        guard let otherImage = object as? UIImage else {
+            return false
+        }
+
+        guard let lhsiTiff = UIImagePNGRepresentation(self),
+            let rhsiTiff = UIImagePNGRepresentation(otherImage) else {
+                return false
+        }
+
+        return lhsiTiff.isEqualToData(rhsiTiff)
+    }
+
+}
+
 func ==(lhs: PasteboardItem, rhs: PasteboardItem) -> Bool {
     switch (lhs, rhs) {
     case (.Text(let str1), .Text(let str2)): return str1 == str2

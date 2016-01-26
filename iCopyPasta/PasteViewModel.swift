@@ -20,12 +20,12 @@ class PasteViewModel {
     func addItemsToPasteboard(pasteboardItem: PasteboardItem) {
         var item: Dictionary<String, AnyObject>
         switch pasteboardItem {
-            case .Text(let string):
-                item = ["NSString" : NSString(string: string)]
-            case .Image(let image):
-                item = ["UIImage" : image]
-            case .URL(let url):
-                item = ["NSURL" : url]
+        case .Text(let string):
+            item = ["NSString" : NSString(string: string)]
+        case .Image(let image):
+            item = ["UIImage" : image]
+        case .URL(let url):
+            item = ["NSURL" : url]
         }
         return PasteboardService.pasteboardService.addItems([item])
     }
