@@ -19,6 +19,7 @@
 		023EE7B11C3CF2D500A0348F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023EE7B01C3CF2D500A0348F /* RxCocoa.framework */; };
 		02E0E1811C5784B2008A556B /* PasteboardServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E0E1801C5784B2008A556B /* PasteboardServiceTests.swift */; };
 		02E0E1821C5784D5008A556B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023EE7A61C3C5F5C00A0348F /* RxSwift.framework */; };
+		02E0E1841C578AE3008A556B /* PasteboardItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E0E1831C578AE3008A556B /* PasteboardItemTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		023EE7A61C3C5F5C00A0348F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		023EE7B01C3CF2D500A0348F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
 		02E0E1801C5784B2008A556B /* PasteboardServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardServiceTests.swift; sourceTree = "<group>"; };
+		02E0E1831C578AE3008A556B /* PasteboardItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardItemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				023EE7911C3C475B00A0348F /* Info.plist */,
 				02E0E1801C5784B2008A556B /* PasteboardServiceTests.swift */,
+				02E0E1831C578AE3008A556B /* PasteboardItemTests.swift */,
 			);
 			path = iCopyPastaTests;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E0E1811C5784B2008A556B /* PasteboardServiceTests.swift in Sources */,
+				02E0E1841C578AE3008A556B /* PasteboardItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
