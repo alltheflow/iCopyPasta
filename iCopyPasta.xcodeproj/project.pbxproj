@@ -12,12 +12,13 @@
 		023EE7801C3C475B00A0348F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023EE77E1C3C475B00A0348F /* Main.storyboard */; };
 		023EE7821C3C475B00A0348F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023EE7811C3C475B00A0348F /* Assets.xcassets */; };
 		023EE7851C3C475B00A0348F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023EE7831C3C475B00A0348F /* LaunchScreen.storyboard */; };
-		023EE7901C3C475B00A0348F /* iCopyPastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */; };
 		023EE79E1C3C4EC600A0348F /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */; };
 		023EE7A01C3C597900A0348F /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE79F1C3C597900A0348F /* PasteboardService.swift */; };
 		023EE7A21C3C5ABC00A0348F /* PasteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023EE7A11C3C5ABC00A0348F /* PasteViewModel.swift */; };
 		023EE7A91C3C5FDA00A0348F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023EE7A61C3C5F5C00A0348F /* RxSwift.framework */; };
 		023EE7B11C3CF2D500A0348F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023EE7B01C3CF2D500A0348F /* RxCocoa.framework */; };
+		02E0E1811C5784B2008A556B /* PasteboardServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E0E1801C5784B2008A556B /* PasteboardServiceTests.swift */; };
+		02E0E1821C5784D5008A556B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023EE7A61C3C5F5C00A0348F /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +40,13 @@
 		023EE7841C3C475B00A0348F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		023EE7861C3C475B00A0348F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023EE78B1C3C475B00A0348F /* iCopyPastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCopyPastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCopyPastaTests.swift; sourceTree = "<group>"; };
 		023EE7911C3C475B00A0348F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023EE79D1C3C4EC600A0348F /* PasteboardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardItem.swift; sourceTree = "<group>"; };
 		023EE79F1C3C597900A0348F /* PasteboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		023EE7A11C3C5ABC00A0348F /* PasteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteViewModel.swift; sourceTree = "<group>"; };
 		023EE7A61C3C5F5C00A0348F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		023EE7B01C3CF2D500A0348F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = SOURCE_ROOT; };
+		02E0E1801C5784B2008A556B /* PasteboardServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E0E1821C5784D5008A556B /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,8 +108,8 @@
 		023EE78E1C3C475B00A0348F /* iCopyPastaTests */ = {
 			isa = PBXGroup;
 			children = (
-				023EE78F1C3C475B00A0348F /* iCopyPastaTests.swift */,
 				023EE7911C3C475B00A0348F /* Info.plist */,
+				02E0E1801C5784B2008A556B /* PasteboardServiceTests.swift */,
 			);
 			path = iCopyPastaTests;
 			sourceTree = "<group>";
@@ -279,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023EE7901C3C475B00A0348F /* iCopyPastaTests.swift in Sources */,
+				02E0E1811C5784B2008A556B /* PasteboardServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,10 +430,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iCopyPastaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasarhelyia.iCopyPastaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCopyPasta.app/iCopyPasta";
 			};
 			name = Debug;
@@ -440,6 +448,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iCopyPastaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasarhelyia.iCopyPastaTests;

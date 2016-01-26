@@ -27,7 +27,7 @@ class PasteViewModel {
         case .URL(let url):
             item = ["NSURL" : url]
         }
-        return PasteboardService.pasteboardService.addItems([item])
+        return PasteboardService.pasteboardService.addItemsToPasteboard([item])
     }
 
 }

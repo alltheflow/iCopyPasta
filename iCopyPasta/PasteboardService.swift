@@ -53,20 +53,18 @@ class PasteboardService {
         if let pasteboardString = pasteboard.string {
             addItem(pasteboardString)
         }
-        
+
         if let pasteboardImage = pasteboard.image {
            addItem(pasteboardImage)
         }
     }
 
-    func addItems(items: PasteboardItemArray) {
+    func addItemsToPasteboard(items: PasteboardItemArray) {
         let pasteboard = UIPasteboard.generalPasteboard()
         pasteboard.addItems(items)
     }
-    
-    // MARK: prvivate functions
 
-    private func addItem(item: AnyObject) {
+    func addItem(item: AnyObject) {
         let pasteboardItem = self.pasteboardItem(item)!
         pasteboardItems.value = pasteboardItems.value.filter { pasteboardItem != $0 }
         pasteboardItems.value.append(pasteboardItem)
@@ -74,6 +72,8 @@ class PasteboardService {
         let pasteboard = UIPasteboard.generalPasteboard()
         changeCount.value = pasteboard.changeCount
     }
+
+    // MARK: prvivate functions
 
     private func pasteboardItem(item: AnyObject?) -> PasteboardItem? {
         if let string = item as? String {
