@@ -6,20 +6,28 @@
 //  Copyright © 2016 Agnes Vasarhelyi. All rights reserved.
 //
 
+import Foundation
 import RxSwift
 
-typealias ObservableArray = Observable<Array<AnyObject>>
+typealias ObservableArray = Observable<Array<PasteboardItem>>
 
 class PasteViewModel {
 
-    let pasteboardService = PasteboardService()
-    
     func pasteboardItems() -> ObservableArray {
-        return pasteboardService.pasteboardItems.asObservable()
+        return PasteboardService.pasteboardService.pasteboardItems.asObservable()
     }
 
-    func pollPasteboardItems() {
-        pasteboardService.pollPasteboardItems()
+    func addItemsToPasteboard(pasteboardItem: PasteboardItem) {
+        var item: Dictionary<String, AnyObject>
+        switch pasteboardItem {
+            case .Text(let string):
+                item = ["NSString" : NSString(string: string)]
+            case .Image(let image):
+                item = ["UIImage" : image]
+            case .URL(let url):
+                item = ["NSURL" : url]
+        }
+        return PasteboardService.pasteboardService.addItems([item])
     }
 
 }

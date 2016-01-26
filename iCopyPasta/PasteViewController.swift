@@ -18,26 +18,28 @@ class PasteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self.pasteViewModel, selector: "pollPasteboardItems", userInfo: nil, repeats: true)
-        timer.fire()
 
-        pasteViewModel.pasteboardItems().bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
-            switch element {
-            case is String:
-                cell.textLabel?.text = element as? String
-            case is UIImage:
-                cell.imageView?.image = element as? UIImage
-            default: break
-            }
+        pasteViewModel.pasteboardItems()
+            .bindTo(tableView.rx_itemsWithCellIdentifier("pasteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
+                switch element {
+                case .Text(let string):
+                    cell.textLabel?.text = String(string)
+                case .Image(let image):
+                    cell.imageView?.image = image
+                case .URL(let url):
+                    cell.textLabel?.text = String(url)
+                }
         }.addDisposableTo(disposeBag)
         
-        pasteViewModel.pasteboardItems().subscribeNext { _ in self.tableView.reloadData() }.addDisposableTo(disposeBag)
+        pasteViewModel.pasteboardItems()
+            .subscribeNext { [weak self] _ in
+                self?.tableView.reloadData()
+            }.addDisposableTo(disposeBag)
         
         tableView
-            .rx_modelSelected(String)
-            .subscribeNext { value in
-                self.pasteViewModel.pasteboardService.pasteboard.addItems([["NSString" : NSString(string: value)]])
+            .rx_modelSelected(PasteboardItem)
+            .subscribeNext { [weak self] element in
+                self?.pasteViewModel.addItemsToPasteboard(element)
             }.addDisposableTo(disposeBag)
     }
     
