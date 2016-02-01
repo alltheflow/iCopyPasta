@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,11 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="copy_pasta" translatesAutoresizingMaskIntoConstraints="NO" id="peH-Mv-Met">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="copy_pasta" translatesAutoresizingMaskIntoConstraints="NO" id="peH-Mv-Met">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="peH-Mv-Met" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="87Y-AB-7uO"/>
+                            <constraint firstItem="peH-Mv-Met" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="CV1-aC-xm7"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="peH-Mv-Met" secondAttribute="bottom" id="Svx-VM-bxJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="peH-Mv-Met" secondAttribute="trailing" id="YLS-d9-bal"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
