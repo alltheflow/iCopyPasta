@@ -1,5 +1,1 @@
-github "ReactiveX/RxSwift" ~> 2.0
-github "SwiftyJSON/SwiftyJSON"
-github "Moya/Moya"
-github "krzyzanowskim/CryptoSwift"
-github "realm/realm-cocoa"
+github "ReactiveX/RxSwift" ~> 2.1.0
