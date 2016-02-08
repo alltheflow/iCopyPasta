@@ -14,7 +14,7 @@ class PasteboardServiceTests: XCTestCase {
     
     func testAddItem() {
         let pasteboardService = PasteboardService.pasteboardService
-        pasteboardService.addItem("pasta")
+        pasteboardService.addPasteboardItem(.Text("pasta"))
         XCTAssertTrue(pasteboardService.pasteboardItems.value[0] == .Text("pasta"), "it should add new items")
     }
 

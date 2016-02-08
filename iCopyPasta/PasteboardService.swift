@@ -54,11 +54,11 @@ class PasteboardService {
         }
 
         if let pasteboardString = pasteboard.string {
-            addItem(pasteboardString)
+            addPasteboardItem(self.pasteboardItem(pasteboardString)!)
         }
 
         if let pasteboardImage = pasteboard.image {
-           addItem(pasteboardImage)
+            addPasteboardItem(self.pasteboardItem(pasteboardImage)!)
         }
     }
 
@@ -73,11 +73,6 @@ class PasteboardService {
         
         let pasteboard = UIPasteboard.generalPasteboard()
         changeCount.value = pasteboard.changeCount
-    }
-
-    func addItem(item: AnyObject) {
-        let pasteboardItem = self.pasteboardItem(item)!
-        self.addPasteboardItem(pasteboardItem)
     }
 
     // MARK: prvivate functions
