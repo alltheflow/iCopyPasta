@@ -27,6 +27,7 @@ class PasteboardService {
                 if let string = pb.valueForPasteboardType(kUTTypeUTF8PlainText as String) {
                     return self?.pasteboardItem(string)
                 }
+
                 if let image = pb.valueForPasteboardType(kUTTypeImage as String) {
                     return self?.pasteboardItem(image)
                 }
