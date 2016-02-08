@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import MobileCoreServices
 
 typealias PasteboardItemArray = Array<Dictionary<String, AnyObject>>
 
@@ -17,26 +18,29 @@ class PasteboardService {
 
     let pasteboardItems = Variable(Array<PasteboardItem>())
     let changeCount = Variable(0)
-
     let disposeBag = DisposeBag()
 
     init() {
-        let pasteboard = UIPasteboard.generalPasteboard()
-        
-        let observableString = pasteboard.rx_observe(String.self, "string")
-        let observableImage = pasteboard.rx_observe(UIImage.self, "image")
-        
-        observableString.subscribeNext { [weak self] string in
-            if let item = string {
-                self?.addItem(item)
+        let pasteboard = NSNotificationCenter.defaultCenter().rx_notification("UIPasteboardChangedNotification", object: nil)
+        _ = pasteboard.map { [weak self] (notification: NSNotification) -> PasteboardItem? in
+            if let pb = notification.object as? UIPasteboard {
+                if let string = pb.valueForPasteboardType(kUTTypeUTF8PlainText as String) {
+                    return self?.pasteboardItem(string)
+                }
+                if let image = pb.valueForPasteboardType(kUTTypeImage as String) {
+                    return self?.pasteboardItem(image)
+                } else {
+                    return nil
+                }
             }
-        }.addDisposableTo(disposeBag)
-        
-        observableImage.subscribeNext { [weak self] image in
-            if let item = image {
-                self?.addItem(item)
+            return nil
+        }
+        .subscribeNext { [weak self] pasteboardItem in
+            if let item = pasteboardItem {
+                self?.addPasteboardItem(item)
             }
-        }.addDisposableTo(disposeBag)
+        }
+        .addDisposableTo(disposeBag)
     }
 
     class var pasteboardService: PasteboardService {
@@ -63,14 +67,18 @@ class PasteboardService {
         let pasteboard = UIPasteboard.generalPasteboard()
         pasteboard.addItems(items)
     }
+    
+    func addPasteboardItem(pasteboardItem: PasteboardItem) {
+        pasteboardItems.value = pasteboardItems.value.filter { pasteboardItem != $0 }
+        pasteboardItems.value.append(pasteboardItem)
+        
+        let pasteboard = UIPasteboard.generalPasteboard()
+        changeCount.value = pasteboard.changeCount
+    }
 
     func addItem(item: AnyObject) {
         let pasteboardItem = self.pasteboardItem(item)!
-        pasteboardItems.value = pasteboardItems.value.filter { pasteboardItem != $0 }
-        pasteboardItems.value.append(pasteboardItem)
-
-        let pasteboard = UIPasteboard.generalPasteboard()
-        changeCount.value = pasteboard.changeCount
+        self.addPasteboardItem(pasteboardItem)
     }
 
     // MARK: prvivate functions
@@ -82,10 +90,6 @@ class PasteboardService {
 
         if let image = item as? UIImage {
             return .Image(image)
-        }
-
-        if let url = item as? NSURL {
-            return .URL(url)
         }
 
         fatalError("unsupported types")
